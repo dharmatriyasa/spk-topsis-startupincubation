@@ -1,0 +1,96 @@
+/* 
+    Color Pallete
+    
+    Dark Blue   : #323643
+    Light Blue  : #93deff
+    White       : #f7f7f7
+    Dark Grey   : #606470
+    
+*/
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header css style */
+
+/* Navbar css style */
+nav{
+    height: 50px;
+    width: 100%;
+    background-color: #323643;
+}
+
+.navbar{
+    list-style-type: none;
+    text-align: center;
+}
+
+.navbar li{
+    display: inline;
+
+}
+
+.navbar li a{
+    list-style-type: none;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 30px;
+    color: #f7f7f7;
+
+}
+
+/* Header style css (under navbar) */
+.header{
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-photo-section{
+    padding: 50px 0 0 70px;
+    text-align: center;
+    flex-basis: 35%;
+}
+
+.header-text-section{
+    flex-basis: 65%;
+    padding: 100px 180px 0 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-section{
+    font-size: 24px;
+    color: #323643;
+}
+
+.text-section{
+    padding-top: 30px;
+    padding-right: 120px;
+    font-size: 18px;
+    color: #606470;
+    text-align: justify;
+}
+
+button{
+    margin-top: 20px;
+    padding: 15px 35px;
+    border-radius: 10px;
+    border: 1px solid #323643;
+    background-color: #f7f7f7;
+    color: #323643;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: #323643;
+    color: #f7f7f7;
+    transition: 0.5s;
+}

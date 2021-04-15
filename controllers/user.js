@@ -1,6 +1,6 @@
 exports.getIndex = (req, res, next) =>{
     res.render('user/index', {
-        title: 'Home Page',
+        title: 'Get Started',
         path: '/'
     });
 }
