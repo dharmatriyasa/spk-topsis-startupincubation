@@ -1,0 +1,98 @@
+/* 
+    Color Pallete
+    
+    Dark Blue   : #323643
+    Light Blue  : #93deff
+    White       : #f7f7f7
+    Dark Grey   : #606470
+    
+*/
+
+.feature{
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+}
+
+.feature-title{
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-title-box{
+    background-color: #606470;
+    flex-basis: 20%;
+    padding: 10px 50px;
+    margin: 50px 40% 10px 40%;
+    border-radius: 35px;
+    text-align: center;
+    font-size: 24px;
+    color: #f7f7f7;
+}
+
+.feature-title-text{
+    flex-basis: 80%;
+    text-align: center;
+    color: #323643;
+    font-size: 24px;
+}
+
+.feature-section{
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 40px;
+
+}
+
+.feature-section-box{
+    background-color: #f7f7f7;
+    flex-basis: 50%;
+    margin: 0px 150px 80px 150px;
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-sb-image{
+    flex-basis: 35%;
+    text-align: center;
+}
+
+.feature-sb-image img{
+    width: 130px;
+    margin-top: 30px;
+}
+
+.feature-sb-text{
+    text-align: center;
+    flex-basis: 50%;
+    margin: 30px;
+    color: #323643;
+}
+
+.feature-sb-button{
+    flex-basis: 15%;
+    background-color: #606470;
+    font-size: 24px;
+    font-weight: 0.5;
+    text-align: center;
+}
+
+.feature-sb-button a{
+    list-style-type: none;
+    text-decoration: none;
+    outline: none;
+}
+
+.feature-sb-button p{
+    margin-top: 10px;
+    color: #f7f7f7;
+}
+
+.feature-sb-line{
+    border-bottom: 0.5px solid #323643;
+    margin: 20px 60px 20px 60px;
+}

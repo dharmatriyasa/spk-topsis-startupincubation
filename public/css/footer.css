@@ -1,0 +1,63 @@
+/* 
+    Color Pallete
+    
+    Dark Blue   : #323643
+    Light Blue  : #93deff
+    White       : #f7f7f7
+    Dark Grey   : #606470
+    
+*/
+
+footer{
+    background-color: #606470;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ft-socmed{
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.ft-line{
+    flex-basis: 5%;
+    border-bottom: 0.25px solid #f7f7f7;
+    margin: 0px 30%;
+}
+
+.ft-copyright{
+    margin-top: 25px;
+    flex-basis: 45%;
+    font-size: 16px;
+    color: #f7f7f7;
+    text-align: center;
+}
+
+.fa{
+    padding: 13px;
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    border: 0.5px solid #f7f7f7;
+}
+
+.fa-facebook, .fa-twitter,
+.fa-youtube, .fa-linkedin,
+.fa-instagram {
+    background: #606470;
+    color: #f7f7f7;
+    margin: 30px 10px;
+}
+
+.fa-facebook:hover, .fa-twitter:hover,
+.fa-youtube:hover, .fa-linkedin:hover,
+.fa-instagram:hover {
+    background: #f7f7f7;
+    color: #606470;
+    transition: 0.2s;
+}
+

@@ -1,5 +1,7 @@
 <%- include('../includes/head.ejs') %> 
 <link rel="stylesheet" type="text/css" href="css/about-style.css">
+<link rel="stylesheet" type="text/css" href="css/feature.css">
+<link rel="stylesheet" type="text/css" href="css/footer.css">
 </head>
 <%- include('../includes/navbar.ejs') %> 
         <div class="header">
@@ -40,11 +42,52 @@
                     tempore itaque! Ad dolores cupiditate dolorem.
                 </p>
             </div>
-
         </div>
     </header>
-    <main>
-
+    <main class="feature">
+        <div class="feature-title">
+            <div class="feature-title-box">
+                <p>Feature</p>
+            </div>
+            <div class="feature-title-text">
+                <h1>This is Our Feature</h1>
+            </div>
+        </div>
+        <div class="feature-section">
+            <div class="feature-section-box">
+                <div class="feature-sb-image">
+                    <img src="image/system.png" alt="">
+                </div>
+                <div class="feature-sb-text">
+                    <h3>DSS App System</h3>
+                    <div class="feature-sb-line"></div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi deleniti eveniet aliquid 
+                        perferendis illo voluptatibus explicabo, repellat, debitis quos odio quod vel eum dolore 
+                        tempore itaque! Ad dolores cupiditate dolorem.
+                    </p>
+                </div>
+                <div class="feature-sb-button">
+                    <a href="#"><p>Learn More</p></a>
+                </div>
+            </div>
+            <div class="feature-section-box">
+                <div class="feature-sb-image">
+                    <img src="image/clock.png" alt="">
+                </div>
+                <div class="feature-sb-text">
+                    <h3>DSS History</h3>
+                    <div class="feature-sb-line"></div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi deleniti eveniet aliquid 
+                        perferendis illo voluptatibus explicabo, repellat, debitis quos odio quod vel eum dolore 
+                        tempore itaque! Ad dolores cupiditate dolorem.
+                    </p>
+                </div>
+                <div class="feature-sb-button">
+                    <a href="#"><p>Learn More</p></a>
+                </div>
+            </div>
+        </div>
     </main>
+    <%- include('../includes/footer.ejs') %> 
 </body>
 </html>
