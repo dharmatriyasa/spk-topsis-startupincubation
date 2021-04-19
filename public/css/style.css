@@ -27,17 +27,17 @@ nav{
     background-color: #323643;
 }
 
-.navbar{
+.navbar-default{
     list-style-type: none;
     text-align: center;
 }
 
-.navbar li{
+.navbar-default li{
     display: inline;
 
 }
 
-.navbar li a{
+.navbar-default li a{
     list-style-type: none;
     text-decoration: none;
     display: inline-block;
