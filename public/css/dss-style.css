@@ -22,3 +22,7 @@
 .row-md-1:hover{
     color: #FFFFFF;
 }
+
+.col-10{
+    padding: 50px 450px 0px 50px;
+}
