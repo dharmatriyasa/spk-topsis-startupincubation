@@ -24,5 +24,20 @@
 }
 
 .col-10{
-    padding: 50px 450px 0px 50px;
+    padding: 50px 150px 0px 150px;
 }
+
+.weighting, .input-altr,
+.view-altr, .output {
+    display: none;
+}
+
+.criteria{
+    display: block;
+}
+
+
+
+/* #criteria{
+    display: block;
+} */

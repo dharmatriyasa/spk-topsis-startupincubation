@@ -1,6 +1,6 @@
 <%- include('../includes/head.ejs') %> 
 <link rel="stylesheet" href="/css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/dss-style.css">
+<link rel="stylesheet" href="/css/dss-style.css">
 </head>
 <%- include('../includes/navbar.ejs') %> 
 </header>
@@ -8,137 +8,26 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-light">
-            <a href="#"><div class="row-md-1">Criteria </div></a>
-            <a href="#"><div class="row-md-1">Weighting </div></a>
-            <a href="#"><div class="row-md-1">Input Alternative </div></a>
-            <a href="#"><div class="row-md-1">View Alternative </div></a>
-            <a href="#"><div class="row-md-1">Generate </div></a>
-            <a href="#"><div class="row-md-1">Output </div></a>
+            <a href="#" onclick="showCriteria()"><div class="row-md-1">Criteria </div></a>
+            <a href="#" onclick="showWeighting()"><div class="row-md-1">Weighting </div></a>
+            <a href="#" onclick="showInputAltr()"><div class="row-md-1">Input Alternative </div></a>
+            <a href="#" onclick="showViewAltr()"><div class="row-md-1">View Alternative </div></a>
+            <!-- <a href="#"><div class="row-md-1">Generate </div></a> -->
+            <a href="#" onclick="showOutput()"><div class="row-md-1">Output </div></a>
         </div>
         <div class="col-10 bg-light text-dark">
-            <!-- Criteria Section -->
-            <!-- <div class="container">
-                <table class="table table-bordered table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>No</th>
-                            <th>Criteria</th>
-                            <th>Type</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>C1</td>
-                            <td>Cost/Benefit</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>C2</td>
-                            <td>Cost/Benefit</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>C3</td>
-                            <td>Cost/Benefit</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>C4</td>
-                            <td>Cost/Benefit</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>C5</td>
-                            <td>Cost/Benefit</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> -->
-
-            <!-- Weighting -->
-            <!-- <div class="container">
-                <table class="table table-bordered table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>No</th>
-                            <th>Criteria</th>
-                            <th>Type</th>
-                            <th>Weight(%)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>C1</td>
-                            <td>Cost/Benefit</td>
-                            <td>x%</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>C2</td>
-                            <td>Cost/Benefit</td>
-                            <td>x%</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>C3</td>
-                            <td>Cost/Benefit</td>
-                            <td>x%</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>C4</td>
-                            <td>Cost/Benefit</td>
-                            <td>x%</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>C5</td>
-                            <td>Cost/Benefit</td>
-                            <td>x%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> -->
-
-            <!-- Input Alternatif -->
-            <!-- <form action="#">
-                <div class="form-group">
-                    <label for="inputNama">Nama</label>
-                    <input type="text" id="inputNama" placeholder="Nama Lengkap" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="inputC1">C1 Value</label>
-                    <input type="text" id="inputC1" placeholder="C1 Value" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="inputC1">C2 Value</label>
-                    <input type="text" id="inputC2" placeholder="C2 Value" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="inputC1">C3 Value</label>
-                    <input type="text" id="inputC3" placeholder="C3 Value" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="inputC1">C4 Value</label>
-                    <input type="text" id="inputC4" placeholder="C4 Value" class="form-control">
-                </div>
-                    
-                <div class="form-group">
-                    <label for="inputC1">C5 Value</label>
-                    <input type="text" id="inputC5" placeholder="C5 Value" class="form-control">
-                </div>  
-            </form> -->
-
-            <!-- Alternative Table -->
-            
+            <%- include('../dss-menu/criteria.ejs') %> 
+            <%- include('../dss-menu/weighting.ejs') %> 
+            <%- include('../dss-menu/input-alternetive.ejs') %> 
+            <%- include('../dss-menu/view-alternative.ejs') %> 
+            <%- include('../dss-menu/output.ejs') %> 
         </div>
+             
     </div>
 </div>
+
+<script src="js/hideshow-dss.js"></script>
+</body>
+</html>
 
 
