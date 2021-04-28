@@ -8,32 +8,18 @@
                 <th>Nilai Preferensi (V)</th>
             </tr>
         </thead>
+        <% if(alternative.length > 0) { %>
         <tbody>
+            <% for(let altr of alternative) { %> 
             <tr>
-                <td>C1</td>
-                <td>NAMA</td>
-                <td>x</td>
+                <td> <%= altr.id %>  </td>
+                <td> <%= altr.name %> </td>
+                <td> <%= altr.alternative_value %> </td>
             </tr>
-            <tr>
-                <td>C2</td>
-                <td>NAMA</td>
-                <td>x</td>
-            </tr>
-            <tr>
-                <td>C3</td>
-                <td>NAMA</td>
-                <td>x</td>
-            </tr>
-            <tr>
-                <td>C4</td>
-                <td>NAMA</td>
-                <td>x</td>
-            </tr>
-            <tr>
-                <td>C5</td>
-                <td>NAMA</td>
-                <td>x</td>
-            </tr>
+            <% } %> 
         </tbody>
+        <% }else { %>
+            <h2>There's no Alternatives</h2> 
+        <% } %> 
     </table>
 </div>
