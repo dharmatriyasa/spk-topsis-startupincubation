@@ -27,17 +27,10 @@
     padding: 50px 150px 0px 150px;
 }
 
-.weighting, .input-altr,
-.view-altr, .output {
+.weighting{
     display: none;
 }
 
 .criteria{
     display: block;
 }
-
-
-
-/* #criteria{
-    display: block;
-} */

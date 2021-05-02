@@ -1,12 +1,38 @@
 const Alternatives = require('../models/alternatives');
 
-exports.getDSSApp = (req, res, next) =>{
+exports.getDSSApp = (req, res, next) => {
+    res.render('user/dss-app', {
+        title: 'DSS Aplication',
+        path: '/dss-app',
+    });
+};
+
+exports.getInputAlternatives = (req, res, next) => {
+    res.render('user/dss-app-input', {
+        title: 'Input Alternatives',
+        path: '/dss-app/input-alternatives'
+    });
+}
+
+exports.getViewAlternatives = (req, res, next) =>{
     Alternatives.fetchAllAlternatives()
         .then(([rows, fieldData]) => {
-            res.render('user/dss-app', {
+            res.render('user/dss-app-view', {
                 alternative: rows,
                 title: 'DSS Aplication',
-                path: '/dss-app'
+                path: '/dss-app/view-alternatives'
+            });
+        })
+        .catch(err => console.log(err));
+};
+
+exports.getOutput = (req, res, next) => {
+    Alternatives.fetchAllAlternatives()
+        .then(([rows, fieldData]) => {
+            res.render('user/dss-app-output', {
+                title: 'Output',
+                path: '/dss-app/output',
+                alternative: rows
             });
         })
         .catch(err => console.log(err));
@@ -26,20 +52,8 @@ exports.postInputAlternatives = (req, res, next) => {
     alternative
         .save()
         .then(() => {
-            res.redirect('/dss-app');          
+            res.redirect('/dss-app/view-alternatives');          
         })
         .catch(err => console.log(err));
 };
 
-// exports.getViewAlternatives = (req, res, next) => {
-//     Alternatives.fetchAllAlternatives()
-//         .then(([rows, fieldData]) => {
-//             console.log(rows.length);
-//             res.render('user/dss-app', {
-//                 alternative: rows,
-//                 pageTitle: 'View Alternatives',
-//                 path: '/dss-app/view-alternatives'
-//             });
-//         })
-//         .catch(err => console.log(err));
-// };

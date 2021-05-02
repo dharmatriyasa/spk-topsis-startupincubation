@@ -8,22 +8,23 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-light">
-            <a href="#" onclick="showCriteria()"><div class="row-md-1">Criteria </div></a>
-            <a href="#" onclick="showWeighting()"><div class="row-md-1">Weighting </div></a>
+            <a href="/dss-app"><div class="row-md-1">Criteria </div></a>
+            <a href="/dss-app"><div class="row-md-1">Weighting </div></a>
             <a href="/dss-app/input-alternatives"><div class="row-md-1">Input Alternative </div></a>
             <a href="/dss-app/view-alternatives"><div class="row-md-1">View Alternative </div></a>
             <!-- <a href="#"><div class="row-md-1">Generate </div></a> -->
             <a href="/dss-app/output"><div class="row-md-1">Output </div></a>
         </div>
         <div class="col-10 bg-light text-dark">
-            <%- include('../dss-menu/criteria.ejs') %> 
-            <%- include('../dss-menu/weighting.ejs') %> 
+            <%- include('../dss-menu/output.ejs') %> 
+            <form action="#">
+                <button class="btn btn-secondary" type="submit">Make New Decision</button>
+            </form>
         </div>
-             
+          
     </div>
 </div>
 
-<script src="js/hideshow-dss.js"></script>
 </body>
 </html>
 
