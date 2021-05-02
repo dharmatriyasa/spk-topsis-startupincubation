@@ -16,5 +16,11 @@ module.exports = class Alternatives {
     static fetchAllAlternatives(){
         return db.execute('SELECT * FROM alternatives');
     }
+
+    save(){
+        return db.execute('INSERT INTO alternatives (name, C1, C2, C3, C4, C5, group_id) VALUES (?,?,?,?,?,?,?)',
+        [this.name, this.c1, this.c2, this.c3, this.c4, this.c5, this.group_id]
+        );
+    }
 }
 
