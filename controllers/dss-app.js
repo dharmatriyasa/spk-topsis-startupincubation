@@ -1,4 +1,5 @@
 const Alternatives = require('../models/alternatives');
+const Criteria = require('../models/criteria');
 
 exports.getDSSApp = (req, res, next) => {
     res.render('user/dss-app', {
@@ -6,6 +7,39 @@ exports.getDSSApp = (req, res, next) => {
         path: '/dss-app',
     });
 };
+
+exports.postInputCriteria = (req, res, next) => {
+    const criteriaName = req.body.criteria;
+    const criteriaType = req.body.criteriaType;
+    const weighting = req.body.weighting;
+    let binaryCriteria = 0;
+
+    if(criteriaType === 'Cost'){
+        binaryCriteria = 0;
+    }else{
+        binaryCriteria = 1;
+    }
+
+    const criteria = new Criteria(null, criteriaName, binaryCriteria, weighting);
+    criteria
+        .save()
+        .then(()=> {
+            res.redirect('/dss-app/view-criteria');
+        })
+        .catch(err => console.log(err));
+}
+
+exports.getViewCriteria = (req, res, next) => {
+    Criteria.fetchAllCriteria()
+        .then(([rows, fieldData]) => {
+            res.render('user/dss-app-criteria', {
+                title: 'View Criteria',
+                path: '/dss-app/view-criteria',
+                criterias: rows,
+            });
+        })
+        .catch(err => console.log(err));
+}
 
 exports.getInputAlternatives = (req, res, next) => {
     res.render('user/dss-app-input', {

@@ -1,0 +1,34 @@
+<!-- Weighting -->
+<div id="weighting" class="container">
+    <% let criteriaLength = criterias.length %> 
+    <% if(criteriaLength > 0) { %> 
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>No</th>
+                <th>Criteria</th>
+                <th>Type</th>
+                <th>Weight(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < criteriaLength; i++) { %> 
+            <tr>
+                <td><%= i+1 %> </td>
+                <td><%= criterias[i].criteria_name %></td>
+                <td>
+                    <% if(criterias[i].type === 1){ %> 
+                        Benefit
+                    <% } else { %>
+                        Cost
+                    <% } %>  
+                </td>
+                <td><%= criterias[i].weighting %>%</td>
+            </tr>
+           <% } %> 
+        </tbody>
+    </table>
+    <% } else { %> 
+        <h1>Data isn't available!</h1>
+    <% } %> 
+</div>
