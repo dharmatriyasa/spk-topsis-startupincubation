@@ -5,11 +5,18 @@
             <label for="inputNama">Nama</label>
             <input type="text" name="inputNama" id="inputNama" placeholder="Nama" class="form-control">
         </div>
-        <div class="form-group">
-            <label for="inputC1">C1 Value</label>
-            <input type="text" name="inputC1" id="inputC1" placeholder="C1 Value" class="form-control">
-        </div>
-        <div class="form-group">
+        <% if(criterias.length > 0) { %>
+            <% for(let criteria of criterias) { %>
+                <div class="form-group">
+                    <label for="inputC<%= criteria.id_criteria %>" >C<%= criteria.id_criteria %> Value</label>
+                    <input type="text" name="inputC<%= criteria.id_criteria %>" id="inputC<%= criteria.id_criteria %>" placeholder="C<%= criteria.id_criteria %> Value" class="form-control">
+                </div>
+            <% } %>
+        <% }else { %>
+            <h1>There's no Criteria</h1>
+        <% } %>   
+        
+        <!-- <div class="form-group">
             <label for="inputC2">C2 Value</label>
             <input type="text" name="inputC2" id="inputC2" placeholder="C2 Value" class="form-control">
         </div>
@@ -28,7 +35,7 @@
         <div class="form-group">
             <label for="groupId">Group Id</label>
             <input type="text" name="groupId" id="groupId" placeholder="C5 Value" class="form-control">
-        </div> 
+        </div>  -->
 
         <button class="btn btn-secondary" type="submit">Submit</button>
     </form>

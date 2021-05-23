@@ -1,5 +1,7 @@
 const Alternatives = require('../models/alternatives');
 const Criteria = require('../models/criteria');
+const Topsis = require('../public/js/topsis');
+
 
 exports.getDSSApp = (req, res, next) => {
     res.render('user/dss-app', {
@@ -42,20 +44,42 @@ exports.getViewCriteria = (req, res, next) => {
 }
 
 exports.getInputAlternatives = (req, res, next) => {
-    res.render('user/dss-app-input', {
-        title: 'Input Alternatives',
-        path: '/dss-app/input-alternatives'
-    });
+    Criteria.fetchAllCriteria()
+        .then(([rows, fieldData]) => {
+            res.render('user/dss-app-input', {
+                title: 'Input Alternatives',
+                path: '/dss-app/input-alternatives',
+                criterias: rows
+            });
+        })
+        .catch(err => console.log(err));
 }
 
 exports.getViewAlternatives = (req, res, next) =>{
+
+    let criterias = []
+    let labelCriteria = [];
+    Criteria.fetchAllCriteria()
+        .then(([rows, fieldData]) => {
+
+            criterias = rows;
+            for(let criteria of criterias){
+                labelCriteria.push('C'+criteria.id_criteria);
+            }
+            // console.log(labelCriteria);
+        })
+        .catch(err => console.log(err));
+
     Alternatives.fetchAllAlternatives()
         .then(([rows, fieldData]) => {
             res.render('user/dss-app-view', {
                 alternative: rows,
+                criterias: criterias,
+                labelCriterias: labelCriteria,
                 title: 'DSS Aplication',
                 path: '/dss-app/view-alternatives'
             });
+            // console.log(rows);
         })
         .catch(err => console.log(err));
 };
@@ -91,3 +115,75 @@ exports.postInputAlternatives = (req, res, next) => {
         .catch(err => console.log(err));
 };
 
+exports.postGenerateInput = (req, res, next) => {
+
+    let alternatives = [];
+    let criterias = [];
+    let labelCriteria = [];
+    let criteriaType = [];
+    let criteriaWeight = [];
+    let collumnLength = 0;
+    let rowLength = 0;
+
+    Alternatives.fetchAllAlternatives()
+        .then(([rows, fieldData]) => {
+            alternatives = rows;
+            return alternatives;
+        })
+        .then((altr) => {
+            alternatives = altr;
+            Criteria.fetchAllCriteria()
+                .then(([rows, fieldData]) => {
+                    criterias = rows;
+                    for(let criteria of criterias){
+                        labelCriteria.push('C'+criteria.id_criteria);
+                        criteriaType.push(criteria.type);
+                        criteriaWeight.push(criteria.weighting);
+                    }
+                    // console.log(alternatives);
+                    // console.log(labelCriteria);
+                    // console.log(criteriaType);
+                    // console.log(criteriaWeight);
+
+                    collumnLength = alternatives.length;
+                    rowLength = criterias.length;
+                    // console.log(collumnLength, rowLength);
+                    let criteriaValues = Topsis.twoDimArray(rowLength, collumnLength);
+                    // console.log(criteriaValues);
+                    for(let i = 0; i < collumnLength; i++){
+                        for(let j = 0; j < rowLength; j++){
+                            criteriaValues[j][i] = alternatives[i][labelCriteria[j]];
+                        }
+                    }
+                    return criteriaValues;
+                })
+                .then((arrValues) => {
+                    let matrixR = Topsis.calculateMatrixR(arrValues);
+
+                    let matrixY = Topsis.calculateMatrixY(matrixR, criteriaWeight);
+
+                    let aPlus = Topsis.calSolidPlus(matrixY, criteriaType);
+
+                    let aMin = Topsis.calSolidMin(matrixY, criteriaType);
+
+                    let dPlus = Topsis.calGapPlus(matrixY, aPlus);
+
+                    let dMin = Topsis.calGapPlus(matrixY, aMin);
+
+                    let valueV = Topsis.preferensiValue(dMin, dPlus);
+
+                    console.log(valueV);
+
+                    for(let i = 0; i < valueV.length; i++){
+                        Alternatives.insertPreferensiValue(valueV[i], i+1);
+                    }
+                })
+                .catch(err => console.log(err));
+        })
+        .then(()=>{
+            setTimeout(()=>{
+            res.redirect('/dss-app/output');        
+            }, 3000);
+        })
+        .catch(err => console.log(err));
+};

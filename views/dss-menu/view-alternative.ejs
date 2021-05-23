@@ -11,24 +11,20 @@
             <tr>
                 <th>Kode</th>
                 <th>Nama</th>
-                <th>C1</th>
-                <th>C2</th>
-                <th>C3</th>
-                <th>C4</th>
-                <th>C5</th>
+                <% for(let labelCriteria of labelCriterias){ %> 
+                    <th><%= labelCriteria %> </th>
+                <% } %> 
             </tr>
         </thead>
         <% if(alternative.length > 0){ %>
         <tbody>
-            <% for(let altr of alternative){ %>
+            <% for(let i = 0; i < alternative.length; i++){ %> 
             <tr>
-                <td><%= altr.id %> </td>
-                <td> <%= altr.name %>   </td>
-                <td> <%= altr.C1 %>  </td>
-                <td> <%= altr.C2 %>  </td>
-                <td> <%= altr.C3 %>  </td>
-                <td> <%= altr.C4 %>  </td>
-                <td> <%= altr.C5 %>  </td>
+                <td><%= alternative[i].id %> </td>
+                <td> <%= alternative[i].name %>   </td>
+                <% for(let labelCriteria of labelCriterias){ %>
+                    <td> <%= alternative[i][labelCriteria] %>  </td>
+                <% } %> 
             </tr>
             <% } %>   
         </tbody>

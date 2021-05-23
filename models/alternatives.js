@@ -22,5 +22,11 @@ module.exports = class Alternatives {
         [this.name, this.c1, this.c2, this.c3, this.c4, this.c5, this.group_id]
         );
     }
+
+    static insertPreferensiValue(preferensiValue, insertId){
+        return db.execute('UPDATE alternatives SET alternative_value=? WHERE id=?',
+        [preferensiValue, insertId]
+        );
+    }
 }
 

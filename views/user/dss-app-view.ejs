@@ -10,7 +10,7 @@
         <%- include('../includes/left-navbar.ejs') %> 
         <div class="col-10 bg-light text-dark">
             <%- include('../dss-menu/view-alternative.ejs') %> 
-            <form action="#">
+            <form action="/dss-app/view-alternatives" method="POST">
                 <button class="btn btn-secondary" type="submit">Generate Decision</button>
             </form>
         </div>           
