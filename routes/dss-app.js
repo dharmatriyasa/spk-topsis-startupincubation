@@ -11,6 +11,7 @@ router.get('/dss-app/output', DSSController.getOutput);
 
 router.post('/dss-app', DSSController.postInputCriteria);
 router.post('/dss-app/input-alternatives', DSSController.postInputAlternatives);
+router.post('/dss-app/view-alternatives', DSSController.postGenerateInput);
 
 
 

@@ -137,6 +137,7 @@ exports.postGenerateInput = (req, res, next) => {
                             criteriaValues[j][i] = alternatives[i][labelCriteria[j]];
                         }
                     }
+                    console.log(criteriaValues);
                     return criteriaValues;
                 })
                 .then((arrValues) => {
