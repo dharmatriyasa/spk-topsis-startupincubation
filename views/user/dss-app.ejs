@@ -8,31 +8,7 @@
 <div class="container-fluid">
     <div class="row">
         <%- include('../includes/left-navbar.ejs') %> 
-        <div class="col-10 bg-light text-dark">
-            <div id="input-altr" class="input-altr">
-                <form action="/dss-app" method="POST">
-                    <div class="form-group">
-                        <label for="criteria">Criteria</label>
-                        <input type="text" name="criteria" id="criteria" placeholder="criteria" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="criteriaType">Type</label>
-                        <select name="criteriaType" id="criteriaType" class="form-control">
-                            <option value="Cost">Cost</option>
-                            <option value="Benefit">Benefit</option>
-                        </select>
-                        <!-- <input type="text" name="criteriaType" id="criteriaType" placeholder="Cost or Benefit" class="form-control"> -->
-                    </div>
-                    <div class="form-group">
-                        <label for="weighting">Weighting</label>
-                        <input type="text" name="weighting" id="weighting" placeholder="%" class="form-control">
-                    </div>
-            
-                    <button class="btn btn-secondary" type="submit">Submit</button>
-                </form>
-            </div>          
-        </div>
-             
+        <%- include('../dss-menu/input-criteria.ejs') %>    
     </div>
 </div>
 </body>

@@ -8,14 +8,14 @@
                 <th>No</th>
                 <th>Criteria</th>
                 <th>Type</th>
-                <th>Weight(%)</th>
+                <th>Weight</th>
             </tr>
         </thead>
         <tbody>
             <% for(let i = 0; i < criteriaLength; i++) { %> 
             <tr>
                 <td><%= i+1 %> </td>
-                <td><%= criterias[i].criteria_name %></td>
+                <td><%= criterias[i].criteria %></td>
                 <td>
                     <% if(criterias[i].type === 1){ %> 
                         Benefit
@@ -23,7 +23,7 @@
                         Cost
                     <% } %>  
                 </td>
-                <td><%= criterias[i].weighting %>%</td>
+                <td><%= criterias[i].weighting %></td>
             </tr>
            <% } %> 
         </tbody>

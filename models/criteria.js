@@ -13,7 +13,7 @@ module.exports = class Criteria{
     }
 
     save(){
-        return db.execute('INSERT INTO criteria (criteria_name, type, weighting) VALUES(?,?,?)',
+        return db.execute('INSERT INTO criteria (criteria, type, weighting) VALUES(?,?,?)',
         [this.criteria, this.type, this.weighting]
         );
     }

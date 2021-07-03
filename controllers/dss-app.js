@@ -2,10 +2,15 @@ const Alternatives = require('../models/alternatives');
 const Criteria = require('../models/criteria');
 
 exports.getDSSApp = (req, res, next) => {
-    res.render('user/dss-app', {
-        title: 'DSS Aplication',
-        path: '/dss-app',
-    });
+    Criteria.fetchAllCriteria()
+        .then(([rows, fieldData]) => {
+            res.render('user/dss-app', {
+                title: 'DSS Aplication',
+                path: '/dss-app',
+                criterias: rows
+            });
+        })
+        .catch(err => console.log(err));
 };
 
 exports.postInputCriteria = (req, res, next) => {
