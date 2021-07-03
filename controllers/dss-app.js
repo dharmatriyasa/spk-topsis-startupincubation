@@ -2,6 +2,7 @@ const Alternatives = require('../models/alternatives');
 const Criteria = require('../models/criteria');
 const Topsis = require('../public/js/topsis');
 
+
 exports.getDSSApp = (req, res, next) => {
     Criteria.fetchAllCriteria()
         .then(([rows, fieldData]) => {
@@ -48,20 +49,41 @@ exports.getViewCriteria = (req, res, next) => {
 }
 
 exports.getInputAlternatives = (req, res, next) => {
-    res.render('user/dss-app-input', {
-        title: 'Input Alternatives',
-        path: '/dss-app/input-alternatives'
-    });
+    Criteria.fetchAllCriteria()
+        .then(([rows, fieldData]) => {
+            res.render('user/dss-app-input', {
+                title: 'Input Alternatives',
+                path: '/dss-app/input-alternatives',
+                criterias: rows
+            });
+        })
+        .catch(err => console.log(err));
 }
 
 exports.getViewAlternatives = (req, res, next) =>{
+    let criterias = []
+    let labelCriteria = [];
+    Criteria.fetchAllCriteria()
+        .then(([rows, fieldData]) => {
+
+            criterias = rows;
+            for(let criteria of criterias){
+                labelCriteria.push('C'+criteria.id);
+            }
+            // console.log(labelCriteria);
+        })
+        .catch(err => console.log(err));
+
     Alternatives.fetchAllAlternatives()
         .then(([rows, fieldData]) => {
             res.render('user/dss-app-view', {
                 alternative: rows,
+                criterias: criterias,
+                labelCriterias: labelCriteria,
                 title: 'DSS Aplication',
                 path: '/dss-app/view-alternatives'
             });
+            // console.log(rows);
         })
         .catch(err => console.log(err));
 };
