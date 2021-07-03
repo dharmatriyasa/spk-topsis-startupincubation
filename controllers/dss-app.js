@@ -140,14 +140,14 @@ exports.postGenerateInput = (req, res, next) => {
                 .then(([rows, fieldData]) => {
                     criterias = rows;
                     for(let criteria of criterias){
-                        labelCriteria.push('C'+criteria.id_criteria);
+                        labelCriteria.push('C'+criteria.id);
                         criteriaType.push(criteria.type);
                         criteriaWeight.push(criteria.weighting);
                     }
-                    // console.log(alternatives);
-                    // console.log(labelCriteria);
-                    // console.log(criteriaType);
-                    // console.log(criteriaWeight);
+                    console.log(alternatives);
+                    console.log(labelCriteria);
+                    console.log(criteriaType);
+                    console.log(criteriaWeight);
 
                     collumnLength = alternatives.length;
                     rowLength = criterias.length;
@@ -159,7 +159,7 @@ exports.postGenerateInput = (req, res, next) => {
                             criteriaValues[j][i] = alternatives[i][labelCriteria[j]];
                         }
                     }
-                    console.log(criteriaValues);
+                    // console.log(criteriaValues);
                     return criteriaValues;
                 })
                 .then((arrValues) => {
@@ -177,7 +177,7 @@ exports.postGenerateInput = (req, res, next) => {
 
                     let valueV = Topsis.preferensiValue(dMin, dPlus);
 
-                    console.log(valueV);
+                    // console.log(valueV);
 
                     for(let i = 0; i < valueV.length; i++){
                         Alternatives.insertPreferensiValue(valueV[i], i+1);
