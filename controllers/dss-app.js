@@ -1,5 +1,6 @@
 const Alternatives = require('../models/alternatives');
 const Criteria = require('../models/criteria');
+// const Topsis = require('../public/js/topsis');
 
 exports.getDSSApp = (req, res, next) => {
     Criteria.fetchAllCriteria()
@@ -96,3 +97,9 @@ exports.postInputAlternatives = (req, res, next) => {
         .catch(err => console.log(err));
 };
 
+// exports.postGenerateInput = (req, res, next) => {
+//     Alternatives.fetchAllAlternatives()
+//         .then(([rows, fieldData]) => {
+//             alternatives = rows;
+//         })
+// };
